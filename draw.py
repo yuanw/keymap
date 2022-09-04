@@ -7,7 +7,7 @@ INNER_PAD_H = 2
 OUTER_PAD_W = KEY_W / 2
 OUTER_PAD_H = KEY_H / 2
 LINE_SPACING = 18
-
+THUMB_KEY_COUNT = 3
 STYLE = """
     svg {
         font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
@@ -34,59 +34,59 @@ def held(key):
 KEYMAP = [
     {
         "left": [
-            ["q", "w", "f", "p", "g"],
-            ["a", "r", "s", "t", "d"],
-            ["z", "x", "c", "v", "b"],
+            ["/", "w", "m", "p", "q"],
+            ["r", "s", "n", "t", "g"],
+            ["x", "c", "f", "d", "b"],
         ],
         "right": [
+            ["z", "k", ",", ".", ";"],
+            ["v", "h", "a", "i", "o"],
             ["j", "l", "u", "y", "'"],
-            ["h", "n", "e", "i", "o"],
-            ["k", "m", ",", ".", ";"],
         ],
-        "thumbs": {"left": ["nav", "shift"], "right": ["space", "sym"],},
+       "thumbs": {"left": ["esc", "space", "bspc"], "right": ["enter", "e", "tab"],},
     },
-    {
-        "left": [
-            ["esc", "[", "{", "(", "~"],
-            ["-", "*", "=", "_", "$"],
-            ["+", "|", "@", "/", "%"],
-        ],
-        "right": [
-            ["^", ")", "}", "]", "`"],
-            ["#", "cmd", "alt", "ctrl", "shift"],
-            ["", "\\", "&amp;", "?", "!"],
-        ],
-        "thumbs": {"left": ["nav", "shift"], "right": ["space", held("sym")],},
-    },
-    {
-        "left": [
-            ["tab", "swap win", "tab left", "tab right", "vol up"],
-            ["shift", "ctrl", "alt", "cmd", "vol down"],
-            ["space left", "space right", "back", "fwd", "play"],
-        ],
-        "right": [
-            ["reset", "home", "up", "end", "del"],
-            ["caps lock", "left", "down", "right", "bspc"],
-            ["", "page down", "page up", "swap lang", "enter"],
-        ],
-        "thumbs": {"left": [held("nav"), "shift"], "right": ["space", "sym"],},
-    },
-    {
-        "left": [
-            ["7", "5", "3", "1", "9"],
-            ["shift", "ctrl", "alt", "cmd", "f11"],
-            ["f7", "f5", "f3", "f1", "f9"],
-        ],
-        "right": [
-            ["8", "0", "2", "4", "6"],
-            ["f10", "cmd", "alt", "ctrl", "shift"],
-            ["f8", "f12", "f2", "f4", "f6"],
-        ],
-        "thumbs": {
-            "left": [held("nav"), "shift"],
-            "right": ["space", held("sym")],
-        },
-    },
+    # {
+    #     "left": [
+    #         ["esc", "[", "{", "(", "~"],
+    #         ["-", "*", "=", "_", "$"],
+    #         ["+", "|", "@", "/", "%"],
+    #     ],
+    #     "right": [
+    #         ["^", ")", "}", "]", "`"],
+    #         ["#", "cmd", "alt", "ctrl", "shift"],
+    #         ["", "\\", "&amp;", "?", "!"],
+    #     ],
+    #    "thumbs": {"left": ["esc", held("space"), "bspc"], "right": ["enter", "e", "tab"],},
+    # },
+    # {
+    #     "left": [
+    #         ["tab", "swap win", "tab left", "tab right", "vol up"],
+    #         ["shift", "ctrl", "alt", "cmd", "vol down"],
+    #         ["space left", "space right", "back", "fwd", "play"],
+    #     ],
+    #     "right": [
+    #         ["reset", "home", "up", "end", "del"],
+    #         ["caps lock", "left", "down", "right", "bspc"],
+    #         ["", "page down", "page up", "swap lang", "enter"],
+    #     ],
+    #     "thumbs": {"left": [held("nav"), "shift"], "right": ["space", "sym"],},
+    # },
+    # {
+    #     "left": [
+    #         ["7", "5", "3", "1", "9"],
+    #         ["shift", "ctrl", "alt", "cmd", "f11"],
+    #         ["f7", "f5", "f3", "f1", "f9"],
+    #     ],
+    #     "right": [
+    #         ["8", "0", "2", "4", "6"],
+    #         ["f10", "cmd", "alt", "ctrl", "shift"],
+    #         ["f8", "f12", "f2", "f4", "f6"],
+    #     ],
+    #     "thumbs": {
+    #         "left": [held("nav"), "shift"],
+    #         "right": ["space", held("sym")],
+    #     },
+    # },
 ]
 
 KEYSPACE_W = KEY_W + 2 * INNER_PAD_W
@@ -134,7 +134,7 @@ def print_layer(x, y, layer):
         x + HAND_W + OUTER_PAD_W, y, layer["right"],
     )
     print_row(
-        x + 3 * KEYSPACE_W, y + 3 * KEYSPACE_H, layer["thumbs"]["left"],
+        x + (5 - THUMB_KEY_COUNT ) * KEYSPACE_W, y + 3 * KEYSPACE_H, layer["thumbs"]["left"],
     )
     print_row(
         x + HAND_W + OUTER_PAD_W, y + 3 * KEYSPACE_H, layer["thumbs"]["right"],
