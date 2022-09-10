@@ -1,3 +1,5 @@
+* my keymap
+a marriage between [[https://github.com/manna-harbour/miryoku][miryoku]] and [[https://github.com/Apsu/Adept][adept]]
 [[keymap.svg]]
 * moonlander
 [[https://configure.zsa.io/moonlander/layouts/yB7w0/latest/0]]

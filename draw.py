@@ -35,15 +35,15 @@ KEYMAP = [
     {
         "left": [
             ["/", "w", "m", "p", "q"],
-            ["r", "s", "n", "t", "g"],
+            ["r/◆", "s/⎇", "n/⎈", "t/⇧", "g"],
             ["x", "c", "f", "d", "b"],
         ],
         "right": [
             ["z", "k", ",", ".", ";"],
-            ["v", "h", "a", "i", "o"],
+            ["v", "h/⇧", "a/⎈", "i/⎇", "o/◆"],
             ["j", "l", "u", "y", "'"],
         ],
-       "thumbs": {"left": ["esc", "space", "bspc"], "right": ["enter", "e", "tab"],},
+       "thumbs": {"left": ["Esc/MD", "Spc/NV", "⌫/MS"], "right": ["↵/Sym", "e/NUM", "↹/FUN"],},
     },
     # {
     #     "left": [
