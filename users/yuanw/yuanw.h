@@ -88,4 +88,4 @@ U_NP,              U_NP,              KC_BTN2,           KC_BTN3,           KC_B
 /*   #define U_CPY C(KC_INS) */
 /*   #define U_CUT S(KC_DEL) */
 /*   #define U_UND KC_UNDO */
-/* #endif */ifndef YUANW_H_
+/* #endif */
