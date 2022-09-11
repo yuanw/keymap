@@ -52,25 +52,25 @@ KEYMAP = [
             ["", "", "", "", ""],
         ],
         "right": [
-            ["^", ")", "}", "]", "`"],
-            ["#", "cmd", "alt", "ctrl", "shift"],
-            ["", "\\", "&amp;", "?", "!"],
+            ["redo", "↹", "copy", "cut", "undo"],
+            ["cap", "left", "down", "up", "right"],
+            ["insert", "home", "Pdown", "Pup", "End"],
         ],
        "thumbs": {"left": [" ", held("nav"), " "], "right": ["↵", "e", "↹ "],},
     },
-    # {
-    #     "left": [
-    #         ["tab", "swap win", "tab left", "tab right", "vol up"],
-    #         ["shift", "ctrl", "alt", "cmd", "vol down"],
-    #         ["space left", "space right", "back", "fwd", "play"],
-    #     ],
-    #     "right": [
-    #         ["reset", "home", "up", "end", "del"],
-    #         ["caps lock", "left", "down", "right", "bspc"],
-    #         ["", "page down", "page up", "swap lang", "enter"],
-    #     ],
-    #     "thumbs": {"left": [held("nav"), "shift"], "right": ["space", "sym"],},
-    # },
+    {
+    "left": [
+            ["reset", "", "", "", ""],
+            ["◆", "⎇", "⎈", "⇧", ""],
+            ["", "", "", "", ""],
+        ],
+        "right": [
+            ["redo", "paste", "copy", "cut", "undo"],
+            ["", "left", "down", "up", "right"],
+            ["insert", "home", "Pdown", "Pup", "End"],
+        ],
+       "thumbs": {"left": [" ", "", held("mouse") ], "right": ["↵", "e", "↹ "],},
+    },
     # {
     #     "left": [
     #         ["7", "5", "3", "1", "9"],
