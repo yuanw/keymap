@@ -46,17 +46,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum combos {
   FD_Q,
   LU_Z,
-  EB_DEL,
-CTLCOMM_LCBR,
+  CTLCOMM_LCBR,
+  CTLDOT_RCBR,
+  CTLCOMM_LBRC,
+  CTLDOT_RBRC,
 };
 const uint16_t PROGMEM q_combo[] = {KC_F, KC_D, COMBO_END};
 const uint16_t PROGMEM z_combo[] = {KC_L, KC_U, COMBO_END};
-const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM lcbr_combo[] = {LCTL_T(KC_N), KC_COMM, COMBO_END};
-combo_t key_combos[COMBO_COUNT] = {
-   [FD_Q ] = COMBO(q_combo, KC_Q),
-   [LU_Z] = COMBO(z_combo, KC_Z), // keycodes with modifiers are possible too!
-   [EB_DEL] =   COMBO(thumbcombos_nav, KC_DEL),
-   [CTLCOMM_LCBR] =COMBO(lcbr_combo,KC_LBRC),
+const uint16_t PROGMEM rcbr_combo[] = {LCTL_T(KC_N), KC_DOT, COMBO_END};
+const uint16_t PROGMEM lbrc_combo[] = {LALT_T(KC_S), KC_COMM, COMBO_END};
+const uint16_t PROGMEM rbrc_combo[] = {LALT_T(KC_S), KC_DOT, COMBO_END};
 
+combo_t key_combos[COMBO_COUNT] = {
+  [FD_Q ] = COMBO(q_combo, KC_Q),
+  [LU_Z] = COMBO(z_combo, KC_Z), // keycodes with modifiers are possible too!
+  [CTLCOMM_LCBR] =COMBO(lcbr_combo,KC_LCBR),
+  [CTLDOT_RCBR] =COMBO(rcbr_combo,KC_RCBR),
+  [ CTLCOMM_LBRC ] =COMBO(lbrc_combo,KC_LBRC),
+  [ CTLDOT_RBRC ] =COMBO(lbrc_combo, KC_RBRC),
 };
