@@ -1,4 +1,4 @@
-##pragma once
+#pragma once
 
 /* #include "miryoku_babel/miryoku_layer_names.h" */
 /* #include "miryoku_babel/miryoku_layer.h" */

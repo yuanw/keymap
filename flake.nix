@@ -2,7 +2,7 @@
   description = "Description for the project";
 
   inputs = {
- flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
@@ -21,14 +21,10 @@
         # Per-system attributes can be defined here. The self' and inputs'
         # module parameters provide easy access to attributes of the same
         # system.
-devShells.default =  pkgs.mkShell {
-  buildInputs = [
-    # build your static site with one of these
-    # or pkgs.zola or pkgs.jekyll
-
-    pkgs.qmk
-  ];
-}
+        devShells.default =  pkgs.mkShell {
+          buildInputs = [
+          ];
+        };
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         packages.default = pkgs.hello;
       };

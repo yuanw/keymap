@@ -1,5 +1,12 @@
-* my keymap
+* my keymap and qmk code
 a marriage between [[https://github.com/manna-harbour/miryoku][miryoku]] and [[https://github.com/Apsu/Adept][adept]]
 [[keymap.svg]]
 * moonlander
 [[https://configure.zsa.io/moonlander/layouts/yB7w0/latest/0]]
+* how to build qmk firmware locally
+#+begin_src shell
+cp -R keymap/keyboards/moonlander/keymaps/yuanw qmk_firmware/keyboards/moonlander/keymaps/yuanw
+cp -R keymap/users/yuanw qmk_firmware/users/yuanw
+z qmk_firmware
+util/docker_build.sh moonlander:yuanw
+#+end_src
