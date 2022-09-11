@@ -43,9 +43,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*   COMBO(thumbcombos_fun, KC_APP) */
 /* }; */
 /* #endif */
-const uint16_t PROGMEM test_combo1[] = {KC_F, KC_D, COMBO_END};
-const uint16_t PROGMEM test_combo2[] = {KC_L, KC_U, COMBO_END};
+enum combos {
+  FD_Q,
+  LU_Z,
+  EB_DEL,
+CTLCOMM_LCBR,
+};
+const uint16_t PROGMEM q_combo[] = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM z_combo[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM lcbr_combo[] = {LCTL_T(KC_N), KC_COMM, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(test_combo1, KC_Q),
-    COMBO(test_combo2, KC_Z), // keycodes with modifiers are possible too!
+   [FD_Q ] = COMBO(q_combo, KC_Q),
+   [LU_Z] = COMBO(z_combo, KC_Z), // keycodes with modifiers are possible too!
+   [EB_DEL] =   COMBO(thumbcombos_nav, KC_DEL),
+   [CTLCOMM_LCBR] =COMBO(lcbr_combo,KC_LBRC),
+
 };

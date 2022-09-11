@@ -1,7 +1,9 @@
 * my keymap and qmk code
 a marriage between [[https://github.com/manna-harbour/miryoku][miryoku]] and [[https://github.com/Apsu/Adept][adept]]
+
+* keymap
 [[keymap.svg]]
-* moonlander
+* moonlander oryx link
 [[https://configure.zsa.io/moonlander/layouts/yB7w0/latest/0]]
 * how to build qmk firmware locally
 #+begin_src shell
