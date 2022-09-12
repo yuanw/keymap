@@ -59,10 +59,10 @@ const uint16_t PROGMEM lbrc_combo[] = {LALT_T(KC_S), KC_COMM, COMBO_END};
 const uint16_t PROGMEM rbrc_combo[] = {LALT_T(KC_S), KC_DOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [FD_Q ] = COMBO(q_combo, KC_Q),
+  [FD_Q] = COMBO(q_combo, KC_Q),
   [LU_Z] = COMBO(z_combo, KC_Z), // keycodes with modifiers are possible too!
   [CTLCOMM_LCBR] =COMBO(lcbr_combo,KC_LCBR),
   [CTLDOT_RCBR] =COMBO(rcbr_combo,KC_RCBR),
-  [ CTLCOMM_LBRC ] =COMBO(lbrc_combo,KC_LBRC),
-  [ CTLDOT_RBRC ] =COMBO(lbrc_combo, KC_RBRC),
+  [CTLCOMM_LBRC] =COMBO(lbrc_combo,KC_LBRC),
+  [CTLDOT_RBRC] =COMBO(rbrc_combo, KC_RBRC),
 };
