@@ -1,38 +1,73 @@
 {
-  description = "Description for the project";
+  description = "A Hello World in Haskell with a dependency and a devShell";
 
   inputs = {
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
-  outputs = { self, flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit self; } {
-      imports = [
-        # To import a flake module
-        # 1. Add foo to inputs
-        # 2. Add foo as a parameter to the outputs function
-        # 3. Add here: foo.flakeModule
-
-      ];
-      systems = [ "x86_64-linux" "aarch64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        # Per-system attributes can be defined here. The self' and inputs'
-        # module parameters provide easy access to attributes of the same
-        # system.
-        devShells.default =  pkgs.mkShell {
-          buildInputs = [
-          ];
+  outputs = { self, nixpkgs, flake-utils, pre-commit-hooks }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ ];
         };
-        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        packages.default = pkgs.hello;
-      };
-      flake = {
-        # The usual flake attributes can be defined here, including system-
-        # agnostic ones like nixosModule and system-enumerating ones, although
-        # those are more easily expressed in perSystem.
 
-      };
-    };
+        t = pkgs.lib.trivial;
+        hl = pkgs.haskell.lib;
+
+        name = "haskell-hello";
+
+        wireShellhook = haskellPackage:
+          hl.overrideCabal haskellPackage (oldAttributes: {
+            shellHook = (oldAttributes.shellHook or "") + self.checks.${system}.pre-commit-check.shellHook;
+          });
+        project = devTools: # [1]
+          let addBuildTools = (t.flip hl.addBuildTools) devTools;
+          in
+          pkgs.haskellPackages.developPackage {
+            root = nixpkgs.lib.sourceFilesBySuffices ./. [
+              ".cabal"
+              ".hs"
+              "package.yaml"
+            ];
+            name = name;
+            returnShellEnv = !(devTools == [ ]); # [2]
+            modifier = (t.flip t.pipe) [
+
+              addBuildTools
+              wireShellhook
+              hl.dontHaddock
+              hl.enableStaticLibraries
+              hl.justStaticExecutables
+              # hl.disableLibraryProfiling
+              # hl.disableExecutableProfiling
+            ];
+          };
+
+      in
+      {
+        packages.pkg = project [ ]; # [3]
+        checks = {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixpkgs-fmt.enable = true;
+              ormolu.enable = true;
+            };
+          };
+        };
+        defaultPackage = self.packages.${system}.pkg;
+        devShell = project (with pkgs.haskellPackages; [
+          # [4]
+          cabal-fmt
+          cabal-install
+          haskell-language-server
+          hlint
+          ormolu
+        ]);
+
+      });
 }
