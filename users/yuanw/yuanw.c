@@ -1,7 +1,9 @@
 #include QMK_KEYBOARD_H
 
 #include "yuanw.h"
-
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
 enum layers { LAYER_NAMES };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -72,3 +74,19 @@ combo_t key_combos[COMBO_COUNT] = {
   [CTLCOMM_LBRC] =COMBO(lbrc_combo,KC_LBRC),
   [CTLDOT_RBRC] =COMBO(rbrc_combo, KC_RBRC),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    #ifdef CONSOLE_ENABLE
+        uprintf("0x%04X,%u,%u,%u,%b,0x%02X,0x%02X,%u\n",
+             keycode,
+             record->event.key.row,
+             record->event.key.col,
+             get_highest_layer(layer_state),
+             record->event.pressed,
+             get_mods(),
+             get_oneshot_mods(),
+             record->tap.count
+             );
+    #endif
+    return true;
+}
