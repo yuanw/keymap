@@ -12,3 +12,7 @@ cp -R keymap/users/yuanw qmk_firmware/users/yuanw
 z qmk_firmware
 util/docker_build.sh moonlander:yuanw
 #+end_src
+* how to flash the firmware
+#+begin_src shell
+wally-cli .build/moonlander_yuanw.bin
+#+end_src
