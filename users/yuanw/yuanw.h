@@ -18,12 +18,12 @@
 #define LAYER_BASE \
 KC_SLSH,           KC_W,              KC_M,              KC_P,              KC_Q,              KC_Z,              KC_K,              KC_COMM,           KC_DOT,            KC_SCLN,           \
 LGUI_T(KC_R),      LALT_T(KC_S),      LCTL_T(KC_N),      LSFT_T(KC_T),      KC_G,              KC_V,              LSFT_T(KC_H),      LCTL_T(KC_A),      LALT_T(KC_I),      LGUI_T(KC_O),      \
-MEH_T(KC_X),  ALGR_T(KC_C),      KC_F,              KC_D,              KC_B,              KC_J,              KC_L,              KC_U,           ALGR_T(KC_Y),    MEH_T( KC_QUOT), \
+LT(BUTTON, KC_X),  ALGR_T(KC_C),      KC_F,              KC_D,              KC_B,              KC_J,              KC_L,              KC_U,           ALGR_T(KC_Y),     LT(BUTTON KC_QUOT), \
 U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   LT(MOUSE, KC_BSPC), LT(SYM, KC_ENT),   LT(NUM, KC_E),  LT(FUN, KC_TAB),   U_NP,              U_NP
 
 
 #define LAYER_NAV \
-RESET,             U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             KC_TAB,             U_CPY,             U_CUT,             U_UND,             \
+RESET,             U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_CAPS,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,           \
 U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,            \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_E,           KC_TAB,            U_NP,              U_NP
