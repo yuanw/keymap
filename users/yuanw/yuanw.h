@@ -55,8 +55,8 @@ U_NP,              U_NP,              KC_LPRN,           KC_RPRN,           KC_U
 
 #define LAYER_FUN \
 KC_F12,            KC_F7,             KC_F8,             KC_F9,             KC_PSCR,           U_NA,              U_NA,              U_NA,              U_NA,              RESET,             \
-LAG(KC_1),       LAG(KC_2),       LAG(KC_3),       LAG(KC_4),       KC_SLCK,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-LSG(KC_1),       LSG(KC_2),       LSG(KC_3),       LSG(KC_4),       KC_PAUS,           U_NA,              U_NA,              U_NA,              KC_ALGR,           U_NA,              \
+LAG(KC_1),       LAG(KC_2),       LAG(KC_3),       LAG(KC_4),               KC_SCRL,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+LSG(KC_1),       LSG(KC_2),       LSG(KC_3),       LSG(KC_4),               KC_PAUS,           U_NA,              U_NA,              U_NA,              KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_TAB,            U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 #define LAYER_BUTTON \
